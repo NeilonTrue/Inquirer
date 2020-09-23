@@ -10,4 +10,4 @@ Android приложение для анкетирования (HTML, CSS, JS + 
   
 Для компиляции приложения необходима среда разработки Cordova (для отладки лучше использовать Android Studio).
 
-Тестовая версия: https://github.com/NeilonTrue/Inquirer/releases/tag/1.0
+Скачать приложение: [АРЧК Анкета 1.0](https://github.com/NeilonTrue/Inquirer/releases/tag/1.0)
