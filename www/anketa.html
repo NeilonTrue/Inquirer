@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+<head>
+<script src="cordova.js"></script>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/papaparse.min.js"></script>
+<script src="js/que.js"></script>
+<script src="js/main.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0 user-scalable=no" />
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<title>Анкета АРЧК</title>
+</head>
+<body>
+	<main>
+    <form id="regForm" method="post">
+	<div class='tab'>
+    <p><b>Информация о себе</b></p>
+    <table id="info">
+        <tr><td><label for="slujba">Служба</label></td><td><input id="slujba" type="text" name="slujba" maxlength="50" required></td></tr>
+        <tr><td><label for="grk">ГРК/База</label></td><td><input id="grk" type="text" name="grk" maxlength="50" required></td></tr>
+        <tr><td><label for="podr">Подразделение</label></td><td><input id="podr" type="text" name="podr" maxlength="50" required></td></tr>
+        <tr><td><label for="dolj">Должность</label></td><td><input id="dolj" type="text" name="dolj" maxlength="50" required></td></tr>
+        <tr><td><label>Пол</label></td>
+            <td><table class="rinfo"><tr>
+                <td><input id="m" type="radio" name="pol" value="М" required><label for="m">М</label></td>
+                <td><input id="j" type="radio" name="pol" value="Ж"><label for="j">Ж</label></td></tr></table></td>
+        </tr>
+        <tr><td><label>Возраст</label></td>
+            <td><table class="rinfo"><tr><td><input id="age1" type="radio" name="age" value="До 30 лет" required><label for="age1">До 30 лет</label></td>
+                <tr><td><input id="age2" type="radio" name="age" value="От 30 до 45 лет"><label for="age2">От 30 до 45 лет</label></td></tr>
+                <tr><td><input id="age3" type="radio" name="age" value="Старше 45 лет"><label for="age3">Старше 45 лет</label></td></tr></table></td>
+        </tr>
+    </table>
+	</div>
+	<div class='tab'>
+    <p><b>По какой причине вы выбрали именно это место работы?</b></p>
+    <table class="rb" id="tprich">
+        <tr>
+            <td>
+                <input id="pr1" type="radio" name="prich" value="Высокий уровень заработной платы" required>
+                <label for="pr1">Высокий уровень заработной платы</label>
+            </td>
+		</tr>
+		<tr>
+            <td>
+                <input id="pr2" type="radio" name="prich" value="Интересная работа, у меня есть возможность для самореализации">
+                <label for="pr2">Интересная работа, у меня есть возможность для самореализации</label>
+            </td>
+		</tr>
+        <tr>
+            <td>
+                <input id="pr3" type="radio" name="prich" value="Хороший социальный пакет">
+                <label for="pr3">Хороший социальный пакет</label>
+            </td>
+		</tr>
+		<tr>
+            <td>
+                <input id="pr4" type="radio" name="prich" value="У меня не богатый выбор работы, работаю там, где взяли">
+                <label for="pr4">У меня не богатый выбор работы, работаю там, где взяли</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input id="pr5" type="radio" name="prich" value="Возможность профессионального роста, опыт будет востребован на рынке труда">
+                <label for="pr5">Возможность профессионального роста, опыт будет востребован на рынке труда</label>
+            </td>
+		</tr>
+		<tr>
+            <td>
+                <input id="pr6" type="radio" name="prich" value="Хорошие взаимоотношения в коллективе">
+                <label for="pr6">Хорошие взаимоотношения в коллективе</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input id="pr7" type="radio" name="prich" value="Работа находится недалеко от дома">
+                <label for="pr7">Работа находится недалеко от дома</label>
+            </td>
+		</tr>
+		<tr>
+            <td>
+                <input id="pr8" type="radio" name="prich" value="Другое">
+                <label for="pr8">Другое</label>
+            </td>
+        </tr>
+    </table>
+	</div>
+	<div class="tab">
+    <p><b>Как долго вы работаете на предприятии?</b></p>
+    <table class="rb">
+        <tr>
+            <td><input id="sr1" type="radio" name="srok" value="Испытательный срок" required><label for="sr1">Испытательный срок</label></td>
+		</tr>
+		<tr>
+            <td><input id="sr2" type="radio" name="srok" value="До 1 года" required><label for="sr2">До 1 года</label></td>
+		</tr>
+		<tr>
+            <td><input id="sr3" type="radio" name="srok" value="От 1 до 3 лет" required><label for="sr3">От 1 до 3 лет</label></td>
+		</tr>
+		<tr>
+            <td><input id="sr4" type="radio" name="srok" value="От 3 до 5 лет" required><label for="sr4">От 3 до 5 лет</label></td>
+		</tr>
+		<tr>
+            <td><input id="sr5" type="radio" name="srok" value="Более 5 лет" required><label for="sr5">Более 5 лет</label></td>
+		</tr>    
+		</table>
+	</div>
+	</main>
+	<footer>
+  	<div class='buttons'>
+	<button type="button" id="menu" onclick="menus()">Меню</button>
+    <button type="button" id="prevBtn" onclick="onDeviceReady.nextPrev(-1)">Назад</button>
+    <button type="button" id="nextBtn" onclick="onDeviceReady.nextPrev(1)">Далее</button>
+	</div>
+	<div class='steps' style="text-align:center;margin-top:20px; display: none;">
+  		<span class="step"></span>
+  		<span class="step"></span>
+  		<span class="step"></span>
+	</div>
+	</footer>
+    </form>
+<script>
+	function menus(){
+	document.location.href = 'index.html';
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,287 @@
+@font-face{
+
+font-family: Moscow;
+src: url(../fonts/moscow-sans.ttf);
+
+}
+
+@font-face{
+
+font-family: NewRegular;
+src: url(../fonts/new-regular.ttf);
+
+}
+
+html {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	height: 100%;
+}
+
+body {
+	height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #EFF1F5;
+    font-family: NewRegular;
+	user-select: none;
+}
+
+main {
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+p {
+    text-align: center;
+    font-size: 5vw;
+	
+}
+
+.logo {
+	position: absolute;
+	bottom: 5vh;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+.logo p {
+	display: flex;
+	font-size: 2vw;
+	text-align: left;
+	margin-left: 3vw;
+}
+
+.logo img {
+	display: flex;
+	height: 8vw;
+}
+
+.done {
+	font-size: 8vw;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+label {
+    font-size: 4.5vw;
+	padding-right: 1vw;
+	transition-duration: 0.1s;
+    transition-timing-function: ease-in-out;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+.rb {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.rb td {
+	padding: 2vw 0 2vw 0;
+}
+
+
+.rb label, .rinfo label {
+	display: inline-block;
+	cursor: pointer;
+	position: relative;
+	margin-right: 10px;
+	padding: 1.5vw 4vw 1.5vw 4vw;
+	font-size: 3vh;
+	background-color: #E1E1E1;
+	border-radius: 10px;
+}
+
+.rb label {
+	width: 90%;
+	min-width: 90%;
+}
+
+
+input[type=text] {
+	height: 5vw;
+	font-size: 4vw;
+	width: 95%;
+	border-radius: 5px;
+	padding-left: 10px;
+}
+
+#lcode {
+	font-size: 7vw;
+}
+
+#code {
+	width: 66.5vw;
+	height: 10vw;
+	border-radius: 10px;
+	text-align: center;
+	font-size: 6vw;
+}
+
+input[type=radio] {
+	display: none;
+}
+
+.rb label:before, .rinfo label:before {
+	content: "";
+	display: none;
+    border-radius: 4vw;
+	width: 4vw;
+	height: 4vw;
+    position: absolute;
+    top: -0.8vw;
+	left: -1.2vw;
+	background-color: #aaa;
+	box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
+}
+
+input[type=radio]:checked + label:before {
+    content: "\2022";
+    color: #f3f3f3;
+    font-size: 200%;
+    text-align: center;
+    line-height: 33%;
+	
+}
+
+input[type=radio]:checked + label {
+	transition-duration: 0.08s;
+    transition-timing-function: ease-in-out;
+	background-color: #75DAAA;
+}
+
+input[type=radio]:checked + label:active {
+	background-color: #36C984;
+}
+
+button {
+	margin: 0;
+	padding: 0;
+	height: 9vw;
+	width: 40%;
+	font-family: NewRegular;
+	font-size: 4.5vw;
+	border: none;
+	border-radius: 5px;
+	background-color: #75DAAA;
+	margin: 20px 5px 20px 5px;
+	cursor: pointer;
+	outline: none;
+	transition-duration: 0.08s;
+    transition-timing-function: ease-in-out;
+}
+
+button:active {
+	background-color: #36C984;
+}
+
+main {
+	flex: 1 0 auto;
+	display: flex;
+	margin: 0 5% 0 5%;
+}
+
+footer {
+	width: 100%;
+	flex: 0 0 auto;
+	margin-bottom: 2vh;
+}
+
+.buttons {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	width: 100%;
+	display: inline-block;
+
+}
+
+#info td {
+    padding: 10px 5px 10px 5px;
+}
+
+input.invalid {
+  background-color: #ffdddd;
+}
+
+#menu {
+    text-align: center;
+}
+
+#menu button {
+    width: 70vw;
+	height: 15vw;
+    margin: 20px;
+    font-size: 6vw;
+    border-radius: 10px;
+    border: none;
+    background-color: #75DAAA;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-in-out;
+}
+
+#menu button:active{
+    background-color: #36C984;
+}
+
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbbbbb;
+  border: none; 
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+.step.active {
+  opacity: 1;
+}
+
+.step.finish {
+  background-color: #4CAF50;
+}
+
+.tab {
+  display: none;
+}
+
+.ques label {
+	height: 15vh;
+	background-size: 10vh;
+	background-repeat: no-repeat;
+	background-position: right bottom;
+	background-origin: content-box;
+	background-blend-mode: overlay;
+}
+
+.ques input[value="4"] + label {
+	background-image: url("../res/smile1.svg");
+}
+
+.ques input[value="3"] + label {
+	background-image: url("../res/smile2.svg");
+}
+
+.ques input[value="2"] + label {
+	background-image: url("../res/smile3.svg");
+}
+
+.ques input[value="1"] + label {
+	background-image: url("../res/smile4.svg");
+}

@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+<script src="cordova.js"></script>
+<script src="js/jquery-3.4.1.min.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0 user-scalable=no" />
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<title>Анкета АРЧК</title>
+</head>
+<body style="height: 100vh;">
+	<main>
+    <table id="menu">
+    <tr><td><button onClick="anketa();">Заполнить анкету</button></td></tr>
+	<tr><td><button onClick="prefs();">Дополнительно</button></td></tr>
+    <tr><td><button id="exit">Выход</button></td></tr>
+    </table>
+	<div class="logo">
+	<img src="res/logo.svg">
+	<p>АГЕНТСТВО ПО РАЗВИТИЮ<br> ЧЕЛОВЕЧЕСКОГО КАПИТАЛА НА<br> ДАЛЬНЕМ ВОСТОКЕ И В АРКТИКЕ</p>
+	</div>
+	</main>
+<script>
+	document.addEventListener("deviceready", onDeviceReady, false);
+
+	function onDeviceReady() {
+    	document.getElementById('exit').addEventListener('click', function() {
+        	navigator.app.exitApp();
+    	});
+	}
+	function anketa() {
+    	document.location.href = 'anketa.html';
+	}
+	function prefs() {
+    	document.location.href = 'check.html';
+	}
+	function upload() {
+		var db = window.sqlitePlugin.openDatabase({name: "main.db"});
+		db.transaction(function(tx) {
+    	tx.executeSql('SELECT date, slujba, grk, podr, dolj, pol, age, prich, staj, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13, q14, q15, q16, q17, q18, q19, q20, q21, q22, q23, q24, q25, q26, q27, q28, q29, q30, q31, q32, q33, q34, q35, q36, q37, q38, q39, q40, q41, q42, q43, q44 FROM answers', [], function(tx, result){
+			var output = JSON.stringify(result);
+			
+			$.ajax({
+				url: 'zirael.xyz/inquirer/index.php',
+				type: 'POST',
+				dataType: 'json',
+				data: output,
+				success: function(data){
+                	var jsonData = JSON.parse(data);
+                	if (jsonData.success == "1")
+                	{
+						alert('Данные успешно загружены');
+                	}
+                	else
+                	{
+                    	alert('Ошибка при загрузке данных');
+                	}
+				}
+			});
+		});
+		}, function(error) {
+    		console.log('Transaction ERROR: ' + error.message);
+			db.close();
+  		}, function() {
+    		console.log('Select database OK');
+			db.close();
+		});
+		}
+</script>
+</body>
+</html>

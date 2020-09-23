@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+<script src="cordova.js"></script>
+<script src="js/jquery-3.4.1.min.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0 user-scalable=no" />
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<title>Анкета АРЧК</title>
+</head>
+<body style="height: 100vh;">
+	<main>
+	<a class="done">Спасибо за участие</a>
+	</main>
+	<footer>
+	<div class="buttons">
+	<button type="button" id="menu" onClick="index();">Меню</button>
+	<button type="button" id="menu" onClick="anketa();">Новая анкета</button>
+	</div>
+	</footer>
+<script>
+	function anketa() {
+    	document.location.href = 'anketa.html';
+	}
+	function index() {
+	  document.location.href = 'index.html';
+	}
+</script>
+</body>
+</html>

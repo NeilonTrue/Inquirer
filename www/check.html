@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<script src="cordova.js"></script>
+<script src="js/jquery-3.4.1.min.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0 user-scalable=no" />
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<title>Анкета АРЧК</title>
+</head>
+<body style="height: 100vh;">
+	<main>
+    <table id="menu">
+	<tr><td><p id="lcode">Введите код</p></td></tr>
+	<tr><td><input type="text" id="code" maxlength="4" placeholder="0000"></td></tr>
+	<tr><td><p id="wrong" style="opacity: 0;">Неправильный код</p></td></tr>
+    <tr><td><button onClick="enter();">Войти</button></td></tr>
+	<tr><td><button onClick="index();">Назад</button></td></tr>
+    </table>
+	<div class="logo">
+	<img src="res/logo.svg">
+	<p>АГЕНТСТВО ПО РАЗВИТИЮ<br> ЧЕЛОВЕЧЕСКОГО КАПИТАЛА НА<br> ДАЛЬНЕМ ВОСТОКЕ И В АРКТИКЕ</p>
+	</div>
+	</main>
+	<script>
+		function enter() {
+			var valid = '2020';
+			
+			var code = document.getElementById('code').value;
+			
+			if (code == valid) {
+				document.location.href = 'prefs.html';
+			} else {
+				document.getElementById('wrong').style.opacity = 1;
+			}
+		}
+	
+		function index() {
+	  		document.location.href = 'index.html';
+		}
+	</script>
+</body>
+</html>
